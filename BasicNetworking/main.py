@@ -1,7 +1,7 @@
 from manim import *
 from manim_slides import Slide
 
-class BasicNetworking(Slide):
+class Tutorial(Slide):
     def construct(self):
         self.play(Write(Text("Basic Networking", color=WHITE, font_size=50)))
         
