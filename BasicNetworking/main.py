@@ -102,11 +102,11 @@ class Tutorial(Slide):
         arrow_top = Arrow(start=computer_left.get_right(), end=top_copy.get_left(), color=WHITE)
         arrow_bottom = Arrow(start=computer_left.get_right(), end=bottom_copy.get_left(), color=WHITE)
         question_mark = Text("?", color=RED).scale(3).move_to(arrow_mid.get_center())
-        self.play(Create(arrow_mid), Create(arrow_top), Create(arrow_bottom), Write(question_mark), run_time=2)
+        self.play(Create(arrow_mid), Create(arrow_top), Create(arrow_bottom), Write(question_mark), run_time=1)
 
         self.next_slide()
 
-        # Uncreate everything 
+        # Fade everything out 
         self.play(FadeOut(*self.mobjects), run_time=0.3)
 
         text = Text("Introducing the \"IP Layer\"\n", color=WHITE, font_size=30)
@@ -161,12 +161,13 @@ class Tutorial(Slide):
 
         # Create copy of the computer and move it to the right
         computer2 = computer.copy().move_to(RIGHT*4)
-        self.play(Transform(computer.copy(), computer2))
-
         text = text[14:23]
         
         # creates switch and moves it to the middle of the screen
         switch = computer.copy().move_to(ORIGIN)
+        self.play(Transform(computer.copy(), computer2))
+
+        self.next_slide()
         self.play(Transform(text, switch))
 
         # Add labels
@@ -232,11 +233,11 @@ class Tutorial(Slide):
 
         computers = VGroup(computer, computer2, switch, arrow1, arrow2)
 
-        self.play(FadeOut(package), run_time=0.3)
+        self.play(FadeOut(package, scale=0.5), run_time=1)
         
         package.scale(0.3).move_to(computer[-2].get_center())
         self.play(FadeIn(computers), run_time=0.2)
-        self.play(FadeIn(package), run_time=0.5)
+        self.play(FadeIn(package, shift=DOWN*2), run_time=1)
 
         self.wait(0.3)
         self.play(Transform(package, package.copy().move_to(switch[-2].get_center())), run_time=1)
@@ -299,6 +300,19 @@ class Tutorial(Slide):
 
         self.next_slide()
 
-        self.play(FadeOut(package_new), FadeOut(ip_layer), FadeOut(ip), run_time=0.1)
+        self.play(FadeOut(ip_layer), FadeOut(ip), run_time=0.3)
+        
+        # Move data from package
+        data = package_new[2]
+        data_layer = data.copy().move_to(RIGHT*2+DOWN*1).scale(1.5)
+        self.play(FadeOut(package_new[0], package_new[-1]),Transform(data, data_layer), run_time=1)
 
+        # Transform data to text "Hello Networking!"
+        text = Text("Hello Networking!", color=WHITE).scale(1.5).move_to(RIGHT*2+DOWN*1)
+        self.play(Transform(data, text), run_time=1)
 
+        self.next_slide()
+
+        # Fade out data and return computers to their original size and position
+        self.play(FadeOut(data), Transform(computers, computers.copy().scale(1/0.6).shift(DOWN*2)), run_time=1)
+        self.play(FadeOut(computers[-1], shift=UP), run_time=1)
