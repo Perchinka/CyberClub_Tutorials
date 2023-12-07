@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "cyberclub-tutorials"
+version = "0.1.0"
+description = ""
+authors = ["Alex Lukin <aleksei.v.lukin@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11, <3.12"
+manim-slides = "^5.0.0"
+manim = "^0.18.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
