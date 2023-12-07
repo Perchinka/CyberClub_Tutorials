@@ -1,2 +1,1 @@
-https://github.com/Perchinka/CyberClub_Tutorials/assets/34923601/91e33d0a-e68d-43ed-b8ec-acc2e5ad3023
-
+![image](https://github.com/Perchinka/CyberClub_Tutorials/assets/34923601/19e6fb68-153a-4d76-b974-0c317e119069)
