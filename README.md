@@ -16,7 +16,7 @@ And also you need to install [Manim's dependencies](https://docs.manim.community
 
 
 # Usage
-You can find all rendered presentations at the http://alex.lukin.family/tutorials (Not yet)
+You can find all rendered presentations at the http://alex.lukin.family/tutorials
 
 
 If you are rendering it localy:
