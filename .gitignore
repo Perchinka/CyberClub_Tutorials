@@ -1,3 +1,9 @@
+# Ignore all media files (It's to heavy)
 **/media
 **/slides
+
+# Ignore pycache
 _pycache_
+
+# Ignore all .zip files
+*.zip

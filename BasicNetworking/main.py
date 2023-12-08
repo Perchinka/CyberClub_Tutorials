@@ -82,7 +82,7 @@ class Tutorial(Slide):
 
         self.next_slide()
 
-        self.play(Transform(text, Text("But what if there more computers?", color=WHITE, font_size=30)))
+        self.play(Transform(text, Text("But what if there are more computers?", color=WHITE, font_size=30)))
 
         self.next_slide()
 
